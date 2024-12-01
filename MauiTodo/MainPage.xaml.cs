@@ -1,14 +1,14 @@
 ﻿using MauiTodo.Data;
 using MauiTodo.Models;
-
+using System.Collections.ObjectModel;
 
 namespace MauiTodo;
 
 public partial class MainPage : ContentPage
 {
-	string _todoListData = string.Empty;
+	public ObservableCollection<TodoItem> Todos { get; set; } = new();
+	
 	readonly Database _database;
-
 
 	public MainPage()
 	{
@@ -16,6 +16,7 @@ public partial class MainPage : ContentPage
 		_database = new Database();
 
 		_ = Initialize();
+		//TodosCollection.ItemsSource = Todos;
 	}
 
 	private async Task Initialize()
@@ -24,10 +25,9 @@ public partial class MainPage : ContentPage
 
 		foreach (var todo in todos)
 		{
-			_todoListData += $"{todo.Title} - {todo.Due:f}{Environment.NewLine}";
+			Todos.Add(todo);
 		}
-
-        TodosLabel.Text = _todoListData;
+			
 	}
 
 	private async void Button_Clicked(object sender, EventArgs e)
@@ -43,10 +43,9 @@ public partial class MainPage : ContentPage
 
 		if(inserted != 0)
 		{
-			_todoListData += $"{todo.Title} - {todo.Due:f}{Environment.NewLine}";
-			TodosLabel.Text = _todoListData;
+            Todos.Add(todo);
 
-			TodoTitleEntry.Text = String.Empty;
+            TodoTitleEntry.Text = String.Empty;
 			DueDatepicker.Date = DateTime.Now;
 		}
 	}
