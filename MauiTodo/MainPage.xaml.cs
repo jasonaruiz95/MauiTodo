@@ -16,7 +16,6 @@ public partial class MainPage : ContentPage
 		_database = new Database();
 
 		_ = Initialize();
-		//TodosCollection.ItemsSource = Todos;
 	}
 
 	private async Task Initialize()
