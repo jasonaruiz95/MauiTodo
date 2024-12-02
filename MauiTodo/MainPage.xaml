@@ -39,6 +39,19 @@
                         x:Name="TodosCollection">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
+                    <Border Stroke="{StaticResource Primary}"
+                            StrokeThickness= "3"
+                            StrokeShape="RoundRectangle 10"
+                            Padding="5">
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                    Offset="20,20"
+                                    Radius="40"
+                                    Opacity="0.8"/>
+
+                        </Border.Shadow>
+           
+
                     <Grid WidthRequest="350"
                           Padding="10"
                           Margin="0,20"
@@ -63,7 +76,7 @@
 
 
                     </Grid>
-
+                    </Border>
                 </DataTemplate>
 
             </CollectionView.ItemTemplate>
