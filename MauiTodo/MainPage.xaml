@@ -39,6 +39,29 @@
                         x:Name="TodosCollection">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.LeftItems>
+                            <SwipeItems Mode="Reveal">
+
+                                        <SwipeItem Text="Delete"
+                                                   IconImageSource="delete"
+                                                   BackgroundColor="Tomato"
+                                                   Invoked="SwipeItem_Invoked"/>
+                                </SwipeItems>
+                        </SwipeView.LeftItems>
+
+                        <SwipeView.RightItems>
+                            <SwipeItems Mode="Reveal">
+                                <SwipeItem Text="Done"
+                                           IconImageSource="check"
+                                           BackgroundColor="LimeGreen"
+                                           Invoked="SwipeItem_Invoked"/>
+
+                            </SwipeItems>
+
+                        </SwipeView.RightItems>
+
+                    
                     <Border Stroke="{StaticResource Primary}"
                             StrokeThickness= "3"
                             StrokeShape="RoundRectangle 10"
@@ -77,6 +100,7 @@
 
                     </Grid>
                     </Border>
+                        </SwipeView>
                 </DataTemplate>
 
             </CollectionView.ItemTemplate>
